@@ -9,11 +9,11 @@ from drf_yasg import openapi
 # swagger
 schema_view = get_schema_view(
     openapi.Info(
-        title="GIS Restaurant API",
+        title="Budget Management API",
         default_version="v1",
-        description="위치 기반 음식점 소개 API입니다.",
+        description="예산 관리 서비스 API 입니다.",
         terms_of_service="https://www.google.com/policies/terms/",
-        contact=openapi.Contact(url="https://github.com/wanted-A/GIS-Restaurant"),
+        contact=openapi.Contact(url="https://github.com/mireu-san/budget-mgt-service"),
     ),
     public=True,
 )
@@ -34,6 +34,6 @@ urlpatterns = [
     # url
     path("admin/", admin.site.urls),
     path("api/v1/users/", include("users.urls")),
-    path("api/v1/budget/", include("budget.urls")),
-    path("api/v1/stalker/", include("stalker.urls")),
+    # path("api/v1/budget/", include("budget.urls")),
+    # path("api/v1/stalker/", include("stalker.urls")),
 ]
