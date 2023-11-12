@@ -2,7 +2,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from .models import Expenditure, UserPreferences
-from .serializers import ExpenditureSerializer
+from .serializers import ExpenditureSerializer, UserPreferencesSerializer
 from rest_framework.permissions import IsAuthenticated
 from django.shortcuts import get_object_or_404
 from django.db.models import Q, Sum
@@ -190,3 +190,29 @@ class TodaysExpenditureOverview(APIView):
                 "risk_percentage": risk_percentage,
             }
         )
+
+
+class UserPreferencesView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        preferences = get_object_or_404(UserPreferences, user=request.user)
+        serializer = UserPreferencesSerializer(preferences)
+        return Response(serializer.data)
+
+    def post(self, request):
+        serializer = UserPreferencesSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save(user=request.user)
+            return Response(serializer.data, status=201)
+        return Response(serializer.errors, status=400)
+
+    def put(self, request):
+        preferences = get_object_or_404(UserPreferences, user=request.user)
+        serializer = UserPreferencesSerializer(
+            preferences, data=request.data, partial=True
+        )
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=400)
