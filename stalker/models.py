@@ -19,3 +19,14 @@ class Expenditure(models.Model):
 
     def __str__(self):
         return f"{self.user}'s expenditure on {self.date}"
+
+
+class UserPreferences(models.Model):
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    monthly_income = models.DecimalField(max_digits=10, decimal_places=2, default=0)
+    saving_goal = models.DecimalField(max_digits=10, decimal_places=2, default=0)
+
+    # 예산 초과 알림 로직 구현 고려가능 (discord 나 카카오톡 알림. webhook?)
+
+    def __str__(self):
+        return f"Preferences of {self.user.username}"
