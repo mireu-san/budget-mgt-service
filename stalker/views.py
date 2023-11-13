@@ -5,7 +5,8 @@ from .models import Expenditure, UserPreferences
 from .serializers import ExpenditureSerializer, UserPreferencesSerializer
 from rest_framework.permissions import IsAuthenticated
 from django.shortcuts import get_object_or_404
-from django.db.models import Q, Sum
+from django.db.models import Q, Sum, Avg
+from datetime import timedelta
 from django.utils.dateparse import parse_datetime
 from django.utils.timezone import now
 from calendar import monthrange
@@ -216,3 +217,130 @@ class UserPreferencesView(APIView):
             serializer.save()
             return Response(serializer.data)
         return Response(serializer.errors, status=400)
+
+
+class ExpenditureStatistics(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        try:
+            user = request.user
+            today = now().date()
+            start_of_this_month = today.replace(day=1)
+            start_of_last_month = (start_of_this_month - timedelta(days=1)).replace(
+                day=1
+            )
+            end_of_last_month = start_of_this_month - timedelta(days=1)
+            same_day_last_week = today - timedelta(days=7)
+
+            # 이번 달 지출 쿼리셋
+            this_month_expenditure = (
+                Expenditure.objects.filter(
+                    user=user, date__range=[start_of_this_month, today]
+                )
+                .values("category__name")
+                .annotate(total=Sum("amount"))
+            )
+
+            # 이달 지출 내역이 없을 시 예외처리
+            if not this_month_expenditure.exists():
+                return Response(
+                    {"error": "이 달의 데이터 통계 집계중입니다. 나중에 다시 확인해주세요."},
+                    status=status.HTTP_404_NOT_FOUND,
+                )
+
+            # 지난 달 동일 기간 지출 쿼리셋
+            last_month_expenditure = (
+                Expenditure.objects.filter(
+                    user=user, date__range=[start_of_last_month, end_of_last_month]
+                )
+                .values("category__name")
+                .annotate(total=Sum("amount"))
+            )
+
+            # 지난 주 동일 요일 지출 및 이번 요일 지출
+            last_week_same_day_expenditure = (
+                Expenditure.objects.filter(
+                    user=user, date__date=same_day_last_week
+                ).aggregate(total=Sum("amount"))["total"]
+                or 0
+            )
+
+            this_day_expenditure = (
+                Expenditure.objects.filter(user=user, date__date=today).aggregate(
+                    total=Sum("amount")
+                )["total"]
+                or 0
+            )
+
+            # 모든 사용자의 평균 지출
+            average_user_expenditure = (
+                Expenditure.objects.filter(date__range=[start_of_this_month, today])
+                .values("user")
+                .annotate(total=Sum("amount"))
+                .aggregate(average=Avg("total"))["average"]
+                or 0
+            )
+
+            # 각 카테고리별 지난 달 대비 이번 달 지출 비율 계산
+            expenditure_comparison = []
+            for category in this_month_expenditure:
+                category_name = category["category__name"]
+                this_month_total = category["total"]
+                last_month_total = next(
+                    (
+                        item
+                        for item in last_month_expenditure
+                        if item["category__name"] == category_name
+                    ),
+                    {},
+                ).get("total", 0)
+
+                change_rate = (
+                    ((this_month_total - last_month_total) / last_month_total * 100)
+                    if last_month_total
+                    else 0
+                )
+                expenditure_comparison.append(
+                    {
+                        "category": category_name,
+                        "last_month": last_month_total,
+                        "this_month": this_month_total,
+                        "change_rate": change_rate,
+                    }
+                )
+
+            day_comparison_rate = (
+                (
+                    (this_day_expenditure - last_week_same_day_expenditure)
+                    / last_week_same_day_expenditure
+                    * 100
+                )
+                if last_week_same_day_expenditure
+                else 0
+            )
+            user_comparison_rate = (
+                (this_day_expenditure / average_user_expenditure * 100)
+                if average_user_expenditure
+                else 0
+            )
+
+            # 결과 반환
+            return Response(
+                {
+                    "monthly_comparison": expenditure_comparison,
+                    "day_comparison_rate": day_comparison_rate,
+                    "user_comparison_rate": user_comparison_rate,
+                }
+            )
+
+        except ValueError as e:
+            # 잘못된 날짜 입력에 대한 오류 처리
+            return Response({"error": str(e)}, status=status.HTTP_400_BAD_REQUEST)
+
+        except Exception as e:
+            # 서버 내부 오류 처리
+            return Response(
+                {"error": "Internal server error."},
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            )
