@@ -1,13 +1,14 @@
-# budget-mgt-service
-예산 관리 어플리케이션. Django 기반.
-
-개발 기간: 23.11.09 ~ 23.11.14 (이 후, 고도화 작업중)
-
 # 개요
 해당 프로젝트는 '예산 관리 서비스' 를 구현하고 있습니다. 사용자의 개인 재무 관리 및 지출 추적을 토대로 재무 컨설팅 기능을 제공합니다. 사용자는 회원가입을 통해 서비스를 이용하고, 월별 예산 설정, 카테고리별 예산 설계, 지출 기록을 기반으로 개인 맞춤형 컨설팅 제공 및 지출 통계 기능이 포함됩니다.
 
-# ERD
-![ERD](assets/images/moneydb_erd.png)
+# Table of Contents
+- [개요](#개요)
+- [Table of Contents](#table-of-contents)
+- [일정 관리](#일정-관리)
+- [TIL \& 회고록](#til--회고록)
+- [API Reference](#api-reference)
+- [ERD](#erd)
+- [관련 링크](#관련-링크)
 
 # 일정 관리
 [일정 관리(Github)](https://github.com/users/mireu-san/projects/5)
@@ -22,6 +23,16 @@
 - [Django — duplicated data issue 회피에는 get_or_create](https://medium.com/@bellwoan/django-duplicated-data-issue-%ED%9A%8C%ED%94%BC%EC%97%90%EB%8A%94-get-or-create-643a1c8d00c6)
 
 - [Python, Django : dummy data 생성 후, 중복 처리하기](https://medium.com/@bellwoan/python-django-dummy-data-%EC%83%9D%EC%84%B1-%ED%9B%84-%EC%A4%91%EB%B3%B5-%EC%B2%98%EB%A6%AC%ED%95%98%EA%B8%B0-266a3b8fffba)
+
+# API Reference
+Swagger : http://127.0.0.1:8000/
+
+![api](assets/images/swagger.png)
+
+# ERD
+![ERD](assets/images/moneydb_erd.png)
+
+
 
 # 관련 링크
 작성 예정.
