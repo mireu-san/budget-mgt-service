@@ -5,11 +5,11 @@
 - [개요](#개요)
 - [Table of Contents](#table-of-contents)
 - [Directory](#directory)
-- [일정 관리](#일정-관리)
-- [TIL \& 회고록](#til--회고록)
+- [프로젝트 진행 및 이슈 관리](#프로젝트-진행-및-이슈-관리)
+- [TIL \& 회고](#til--회고)
 - [API Reference](#api-reference)
 - [ERD](#erd)
-- [관련 링크](#관련-링크)
+- [구현 설계 및 의도](#구현-설계-및-의도)
 
 # Directory
 <details>
@@ -78,11 +78,11 @@ budget-mgt-service
 
 
 
-# 일정 관리
-[일정 관리(Github) 바로가기](https://github.com/users/mireu-san/projects/5)
+# 프로젝트 진행 및 이슈 관리
+[이슈 및 일정 관리 페이지 바로가기](https://github.com/users/mireu-san/projects/5)
 ![api](assets/images/planner.png)
 
-# TIL & 회고록
+# TIL & 회고
 - [Django — Unit Test 작성에서 겪은 이슈들](https://medium.com/@bellwoan/django-unit-test-%EC%9E%91%EC%84%B1%EC%97%90%EC%84%9C-%EA%B2%AA%EC%9D%80-%EC%9D%B4%EC%8A%88%EB%93%A4-ea4f7da18390)
 
 - [Django — Unit test 작성과 절대경로](https://medium.com/@bellwoan/django-unit-test-%EC%9E%91%EC%84%B1%EA%B3%BC-%EC%A0%88%EB%8C%80%EA%B2%BD%EB%A1%9C-5c7f4d6dfea9)
@@ -103,5 +103,5 @@ Swagger : http://127.0.0.1:8000/
 
 
 
-# 관련 링크
-작성 예정.
+# 구현 설계 및 의도
+작성 및 정리 예정.
