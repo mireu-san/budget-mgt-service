@@ -9,6 +9,9 @@
 - [TIL \& 회고](#til--회고)
 - [API Reference](#api-reference)
 - [ERD](#erd)
+- [Skills](#skills)
+      - [Language and Tool](#language-and-tool)
+      - [Database](#database)
 - [구현 설계 및 의도](#구현-설계-및-의도)
 
 # Directory
@@ -101,7 +104,17 @@ Swagger : http://127.0.0.1:8000/
 # ERD
 ![ERD](assets/images/moneydb_erd.png)
 
+# Skills
+#### Language and Tool
 
+<img src="https://img.shields.io/badge/django-092E20?style=for-the-badge&logo=django&logoColor=white">
+<img src="https://img.shields.io/badge/python-3776AB?style=for-the-badge&logo=python&logoColor=white">
+<img src="https://img.shields.io/badge/swagger-85EA2D?style=for-the-badge&logo=swagger&logoColor=white">
+<img src="https://img.shields.io/badge/jwt-000000?style=for-the-badge&logo=jwt&logoColor=white">
+
+#### Database
+
+<img src="https://img.shields.io/badge/postgresql-4169E1?style=for-the-badge&logo=postgresql&logoColor=white">
 
 # 구현 설계 및 의도
 작성 및 정리 예정.
