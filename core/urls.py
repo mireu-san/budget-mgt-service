@@ -35,5 +35,5 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("api/v1/users/", include("users.urls")),
     path("api/v1/budget/", include("budget.urls")),
-    # path("api/v1/stalker/", include("stalker.urls")),
+    path("api/v1/stalker/", include("stalker.urls")),
 ]
