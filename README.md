@@ -4,14 +4,83 @@
 # Table of Contents
 - [개요](#개요)
 - [Table of Contents](#table-of-contents)
+- [Directory](#directory)
 - [일정 관리](#일정-관리)
 - [TIL \& 회고록](#til--회고록)
 - [API Reference](#api-reference)
 - [ERD](#erd)
 - [관련 링크](#관련-링크)
 
+# Directory
+<details>
+<summary>눌러서 프로젝트 파일 구조 보기</summary>
+<pre>
+budget-mgt-service
+├─ .gitignore
+├─ assets
+│  └─ images
+│     ├─ moneydb.png
+│     ├─ moneydb_erd.png
+│     └─ swagger.png
+├─ budget
+│  ├─ admin.py
+│  ├─ apps.py
+│  ├─ migrations
+│  │  ├─ 0001_initial.py
+│  │  ├─ 0002_alter_budgetcategory_name.py
+│  │  └─ __init__.py
+│  ├─ models.py
+│  ├─ serializers.py
+│  ├─ tests.py
+│  ├─ urls.py
+│  ├─ views.py
+│  └─ __init__.py
+├─ core
+│  ├─ asgi.py
+│  ├─ settings.py
+│  ├─ urls.py
+│  ├─ wsgi.py
+│  └─ __init__.py
+├─ dummy.py
+├─ LICENSE
+├─ manage.py
+├─ README.md
+├─ requirements.txt
+├─ stalker
+│  ├─ admin.py
+│  ├─ apps.py
+│  ├─ migrations
+│  │  ├─ 0001_initial.py
+│  │  ├─ 0002_userpreferences_income_range_and_more.py
+│  │  └─ __init__.py
+│  ├─ models.py
+│  ├─ serializers.py
+│  ├─ tests.py
+│  ├─ urls.py
+│  ├─ views.py
+│  └─ __init__.py
+├─ swagger.py
+└─ users
+   ├─ admin.py
+   ├─ apps.py
+   ├─ manager.py
+   ├─ migrations
+   │  ├─ 0001_initial.py
+   │  └─ __init__.py
+   ├─ models.py
+   ├─ serializers.py
+   ├─ tests.py
+   ├─ urls.py
+   ├─ views.py
+   └─ __init__.py
+</pre>
+</details>
+
+
+
 # 일정 관리
-[일정 관리(Github)](https://github.com/users/mireu-san/projects/5)
+[일정 관리(Github) 바로가기](https://github.com/users/mireu-san/projects/5)
+![api](assets/images/planner.png)
 
 # TIL & 회고록
 - [Django — Unit Test 작성에서 겪은 이슈들](https://medium.com/@bellwoan/django-unit-test-%EC%9E%91%EC%84%B1%EC%97%90%EC%84%9C-%EA%B2%AA%EC%9D%80-%EC%9D%B4%EC%8A%88%EB%93%A4-ea4f7da18390)
