@@ -1,18 +1,32 @@
-# 개요
-해당 프로젝트는 '예산 관리 서비스' 를 구현하고 있습니다. 사용자의 개인 재무 관리 및 지출 추적을 토대로 재무 컨설팅 기능을 제공합니다. 사용자는 회원가입을 통해 서비스를 이용하고, 월별 예산 설정, 카테고리별 예산 설계, 지출 기록을 기반으로 개인 맞춤형 컨설팅 제공 및 지출 통계 기능이 포함됩니다.
-
 # Table of Contents
-- [개요](#개요)
 - [Table of Contents](#table-of-contents)
-- [Directory](#directory)
-- [프로젝트 진행 및 이슈 관리](#프로젝트-진행-및-이슈-관리)
-- [TIL \& 회고](#til--회고)
-- [API Reference](#api-reference)
-- [ERD](#erd)
+- [개요](#개요)
 - [Skills](#skills)
       - [Language and Tool](#language-and-tool)
       - [Database](#database)
+- [Directory](#directory)
+- [API Reference](#api-reference)
+- [ERD](#erd)
+- [프로젝트 진행 및 이슈 관리](#프로젝트-진행-및-이슈-관리)
+- [TIL \& 회고](#til--회고)
 - [구현 설계 및 의도](#구현-설계-및-의도)
+
+
+# 개요
+해당 프로젝트는 '예산 관리 서비스' 를 구현하고 있습니다. 사용자의 개인 재무 관리 및 지출 추적을 토대로 재무 컨설팅 기능을 제공합니다. 사용자는 회원가입을 통해 서비스를 이용하고, 월별 예산 설정, 카테고리별 예산 설계, 지출 기록을 기반으로 개인 맞춤형 컨설팅 제공 및 지출 통계 기능이 포함됩니다.
+
+# Skills
+#### Language and Tool
+
+<img src="https://img.shields.io/badge/django-092E20?style=for-the-badge&logo=django&logoColor=white">
+<img src="https://img.shields.io/badge/python-3776AB?style=for-the-badge&logo=python&logoColor=white">
+<img src="https://img.shields.io/badge/swagger-85EA2D?style=for-the-badge&logo=swagger&logoColor=white">
+<img src="https://img.shields.io/badge/jwt-000000?style=for-the-badge&logo=jwt&logoColor=white">
+
+#### Database
+
+<img src="https://img.shields.io/badge/postgresql-4169E1?style=for-the-badge&logo=postgresql&logoColor=white">
+
 
 # Directory
 <details>
@@ -79,6 +93,13 @@ budget-mgt-service
 </pre>
 </details>
 
+# API Reference
+Swagger : http://127.0.0.1:8000/
+
+![api](assets/images/swagger.png)
+
+# ERD
+![ERD](assets/images/moneydb_erd.png)
 
 
 # 프로젝트 진행 및 이슈 관리
@@ -96,25 +117,8 @@ budget-mgt-service
 
 - [Python, Django : dummy data 생성 후, 중복 처리하기](https://medium.com/@bellwoan/python-django-dummy-data-%EC%83%9D%EC%84%B1-%ED%9B%84-%EC%A4%91%EB%B3%B5-%EC%B2%98%EB%A6%AC%ED%95%98%EA%B8%B0-266a3b8fffba)
 
-# API Reference
-Swagger : http://127.0.0.1:8000/
 
-![api](assets/images/swagger.png)
 
-# ERD
-![ERD](assets/images/moneydb_erd.png)
-
-# Skills
-#### Language and Tool
-
-<img src="https://img.shields.io/badge/django-092E20?style=for-the-badge&logo=django&logoColor=white">
-<img src="https://img.shields.io/badge/python-3776AB?style=for-the-badge&logo=python&logoColor=white">
-<img src="https://img.shields.io/badge/swagger-85EA2D?style=for-the-badge&logo=swagger&logoColor=white">
-<img src="https://img.shields.io/badge/jwt-000000?style=for-the-badge&logo=jwt&logoColor=white">
-
-#### Database
-
-<img src="https://img.shields.io/badge/postgresql-4169E1?style=for-the-badge&logo=postgresql&logoColor=white">
 
 # 구현 설계 및 의도
 작성 및 정리 예정.
