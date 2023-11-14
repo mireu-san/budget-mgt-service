@@ -8,8 +8,8 @@
 - [API Reference](#api-reference)
 - [ERD](#erd)
 - [프로젝트 진행 및 이슈 관리](#프로젝트-진행-및-이슈-관리)
-- [TIL \& 회고](#til--회고)
 - [구현 설계 및 의도](#구현-설계-및-의도)
+- [TIL \& 회고](#til--회고)
 
 
 # 개요
@@ -26,7 +26,6 @@
 #### Database
 
 <img src="https://img.shields.io/badge/postgresql-4169E1?style=for-the-badge&logo=postgresql&logoColor=white">
-
 
 # Directory
 <details>
@@ -112,6 +111,35 @@ Swagger : http://127.0.0.1:8000/
     <img src="assets/images/planner.png" alt="프로젝트 관리">
 </a>
 
+# 구현 설계 및 의도
+작성 및 정리 예정.
+<details>
+<summary>회원 가입</summary>
+<pre>
+작성 예정
+</pre>
+</details>
+
+<details>
+<summary>예산 입력</summary>
+<pre>
+작성 예정
+</pre>
+</details>
+
+<details>
+<summary>지출 트래킹 및 개인 맞춤형 컨설팅</summary>
+<pre>
+작성 예정
+</pre>
+</details>
+
+<details>
+<summary>Discord Webhook 알림 기능</summary>
+<pre>
+작성 예정
+</pre>
+</details>
 
 # TIL & 회고
 - [Django — Unit Test 작성에서 겪은 이슈들](https://medium.com/@bellwoan/django-unit-test-%EC%9E%91%EC%84%B1%EC%97%90%EC%84%9C-%EA%B2%AA%EC%9D%80-%EC%9D%B4%EC%8A%88%EB%93%A4-ea4f7da18390)
@@ -123,9 +151,3 @@ Swagger : http://127.0.0.1:8000/
 - [Django — duplicated data issue 회피에는 get_or_create](https://medium.com/@bellwoan/django-duplicated-data-issue-%ED%9A%8C%ED%94%BC%EC%97%90%EB%8A%94-get-or-create-643a1c8d00c6)
 
 - [Python, Django : dummy data 생성 후, 중복 처리하기](https://medium.com/@bellwoan/python-django-dummy-data-%EC%83%9D%EC%84%B1-%ED%9B%84-%EC%A4%91%EB%B3%B5-%EC%B2%98%EB%A6%AC%ED%95%98%EA%B8%B0-266a3b8fffba)
-
-
-
-
-# 구현 설계 및 의도
-작성 및 정리 예정.
