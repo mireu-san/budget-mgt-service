@@ -6,7 +6,7 @@
 Users (회원), Budget(예산 관리), Stalker(지출내역 추적)로 분류하고, 사용자의 데이터 값을 토대로 피드백을 제공 및 추천을 합니다.
 
 # ERD
-![ERD](assets/images/moneydb.png)
+![ERD](assets/images/moneydb_erd.png)
 
 # 일정 관리
 [일정 관리(Github)](https://github.com/users/mireu-san/projects/5)
