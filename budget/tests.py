@@ -1,7 +1,10 @@
 from django.test import TestCase
 from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 from .models import BudgetCategory, UserBudget
 from datetime import date
+
+User = get_user_model()
 
 
 class BudgetModelTest(TestCase):
