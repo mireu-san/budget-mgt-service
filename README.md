@@ -9,7 +9,7 @@ Users (회원), Budget(예산 관리), Stalker(지출내역 추적)로 분류하
 ![ERD](assets/images/moneydb.png)
 
 # 일정 관리
-작성 예정. (현 repository 의 project)
+[일정 관리(Github)](https://github.com/users/mireu-san/projects/5)
 
 # TIL
 링크 예정.
