@@ -1,5 +1,6 @@
 from django.contrib.auth.base_user import BaseUserManager
 from django.utils.translation import gettext_lazy as _
+from django.contrib.auth.password_validation import validate_password
 
 # from django.contrib.auth.hashers import make_password
 
@@ -12,6 +13,7 @@ class CustomUserManager(BaseUserManager):
             username=username, email=self.normalize_email(email), **extra_fields
         )
         if password:
+            validate_password(password)
             user.set_password(password)
         user.save(using=self._db)
         return user
