@@ -103,8 +103,15 @@ Swagger : http://127.0.0.1:8000/
 
 
 # 프로젝트 진행 및 이슈 관리
-[이슈 및 일정 관리 페이지 바로가기](https://github.com/users/mireu-san/projects/5)
-![api](assets/images/planner.png)
+아래 아이콘을 눌러 이슈 및 일정 관리 페이지 바로가기
+
+<a href="https://github.com/users/mireu-san/projects/5">
+    <img src="https://img.shields.io/badge/github-000000?style=for-the-badge&logo=github&logoColor=white">
+</a>
+<a href="https://github.com/users/mireu-san/projects/5">
+    <img src="assets/images/planner.png" alt="프로젝트 관리">
+</a>
+
 
 # TIL & 회고
 - [Django — Unit Test 작성에서 겪은 이슈들](https://medium.com/@bellwoan/django-unit-test-%EC%9E%91%EC%84%B1%EC%97%90%EC%84%9C-%EA%B2%AA%EC%9D%80-%EC%9D%B4%EC%8A%88%EB%93%A4-ea4f7da18390)
