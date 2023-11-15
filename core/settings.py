@@ -187,22 +187,23 @@ SWAGGER_SETTINGS = {
     }
 }
 
-# redis
+# Redis Cache 설정
 CACHES = {
     "default": {
         "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": "redis://127.0.0.1:6379/1",
+        "LOCATION": "redis://redis:6379/1",  # Docker 내부 네트워크에서 Redis 참조
         "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
         },
     }
 }
 
-# celery
-CELERY_BROKER_URL = "redis://127.0.0.1:6380/1"
-CELERY_RESULT_BACKEND = "redis://127.0.0.1:6380/1"
+# Celery 설정
+CELERY_BROKER_URL = "redis://redis:6379/0"  # Docker 내부 네트워크에서 Redis 참조
+CELERY_RESULT_BACKEND = "redis://redis:6379/0"
 
 # Celery Beat 스케줄 설정
+# 오전 9시에 사용자별 일일 예산 추천 알림 (budget, stalker 의 tasks 실행)
 CELERY_BEAT_SCHEDULE = {
     "morning_budget_notification": {
         "task": "budget.tasks.send_daily_budget_notification",
