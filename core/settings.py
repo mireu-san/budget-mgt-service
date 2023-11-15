@@ -7,6 +7,10 @@ import environ
 from pathlib import Path
 from datetime import timedelta
 
+# celery
+from celery.schedules import crontab
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 
 # .env 설정
@@ -192,4 +196,20 @@ CACHES = {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
         },
     }
+}
+
+# celery
+CELERY_BROKER_URL = "redis://127.0.0.1:6380/1"
+CELERY_RESULT_BACKEND = "redis://127.0.0.1:6380/1"
+
+# Celery Beat 스케줄 설정
+CELERY_BEAT_SCHEDULE = {
+    "morning_budget_notification": {
+        "task": "budget.tasks.send_daily_budget_notification",
+        "schedule": crontab(hour=9, minute=0),
+    },
+    "morning_budget_exceed_alert": {
+        "task": "stalker.tasks.send_budget_exceed_alerts",
+        "schedule": crontab(hour=9, minute=0),
+    },
 }
