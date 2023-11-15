@@ -2,17 +2,28 @@
 
   # 참고: django 는 docker hub 에서 deprecated 되어서 이제부터는 추가하지 않음. Python 으로 대체.
   # RabbitMQ 대신, redis 로 message broker 사용.
-  
+
   services:
+    # nginx:
+    #   build: ./nginx
+    #   volumes:
+    #     - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    #     - static_volume:/staticfiles
+    #   ports:
+    #     - "80:80"
+    #   depends_on:
+    #     - web
     web:
       build: .
       command: gunicorn core.wsgi:application --bind 0.0.0.0:8000
       volumes:
         - .:/app
+        - static_volume:/app/staticfiles
       ports:
         - "8000:8000"
       depends_on:
         - redis
+
 
     redis:
       image: redis:7.2.3-alpine3.18
@@ -36,3 +47,6 @@
       depends_on:
         - web
         - redis
+
+  volumes:
+    static_volume:
