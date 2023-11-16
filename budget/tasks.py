@@ -10,7 +10,7 @@ User = get_user_model()
 
 @shared_task
 def send_daily_budget_recommendations():
-    users = User.objects.all()
+    users = User.objects.filter(receive_notifications=True)  # 알림을 받기 원하는 사용자만 선택
     for user in users:
         # 사용자별 일일 예산 추천 로직
         recommended_budget = calculate_daily_budget_for_user(user)
