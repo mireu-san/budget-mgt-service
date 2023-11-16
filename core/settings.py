@@ -219,10 +219,10 @@ CELERY_ENABLE_UTC = False
 CELERY_BEAT_SCHEDULE = {
     "morning_budget_notification": {
         "task": "budget.tasks.send_daily_budget_recommendations",
-        "schedule": crontab(hour=22, minute=16),
+        "schedule": crontab(hour=21, minute=0),
     },
     "morning_budget_exceed_alert": {
         "task": "stalker.tasks.send_budget_exceed_alerts",
-        "schedule": crontab(hour=22, minute=16),
+        "schedule": crontab(hour=21, minute=0),
     },
 }
