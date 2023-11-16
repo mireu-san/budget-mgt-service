@@ -12,7 +12,6 @@ class User(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(max_length=255, unique=True)
     objects = CustomUserManager()
     # discord
-    receive_notifications = models.BooleanField(default=False)  # 기본값은 False
     discord_webhook_url = models.URLField(
         max_length=255, blank=True, null=True
     )  # 해당 부분은 선택사항으로 기본 설정.
