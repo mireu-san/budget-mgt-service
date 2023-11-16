@@ -149,6 +149,8 @@ Swagger : http://127.0.0.1:8000/
 # TIL & 회고
 - [Django, Docker, Nginx: 정적 파일 로딩 이슈 해결 기록 일지](https://medium.com/@bellwoan/django-docker-nginx-%EC%A0%95%EC%A0%81-%ED%8C%8C%EC%9D%BC-%EB%A1%9C%EB%94%A9-%EC%9D%B4%EC%8A%88-%ED%95%B4%EA%B2%B0-%EA%B8%B0%EB%A1%9D-%EC%9D%BC%EC%A7%80-7954987b33ba)
 
+- [개발 과정에서 겪었던 딜레마, 그리고 데드라인](https://medium.com/@bellwoan/%EA%B0%9C%EB%B0%9C-%EA%B3%BC%EC%A0%95%EC%97%90%EC%84%9C-%EA%B2%AA%EC%97%88%EB%8D%98-%EB%94%9C%EB%A0%88%EB%A7%88-%EA%B7%B8%EB%A6%AC%EA%B3%A0-%EB%8D%B0%EB%93%9C%EB%9D%BC%EC%9D%B8-61f1108ea3c3)
+
 - [Django — Unit Test 작성에서 겪은 이슈들](https://medium.com/@bellwoan/django-unit-test-%EC%9E%91%EC%84%B1%EC%97%90%EC%84%9C-%EA%B2%AA%EC%9D%80-%EC%9D%B4%EC%8A%88%EB%93%A4-ea4f7da18390)
 
 - [Django — Unit test 작성과 절대경로](https://medium.com/@bellwoan/django-unit-test-%EC%9E%91%EC%84%B1%EA%B3%BC-%EC%A0%88%EB%8C%80%EA%B2%BD%EB%A1%9C-5c7f4d6dfea9)
