@@ -1,10 +1,11 @@
 FROM python:3.11.6-alpine3.18
 
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
-
 # 작업 디렉토리 설정
 WORKDIR /app
+
+# 환경 변수 설정
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
 
 # 의존성 파일 복사 및 설치
 COPY requirements.txt /app/
