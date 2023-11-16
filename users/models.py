@@ -11,7 +11,9 @@ class User(AbstractBaseUser, PermissionsMixin):
     username = models.CharField(max_length=30, unique=True)
     email = models.EmailField(max_length=255, unique=True)
     objects = CustomUserManager()
-    discord_webhook_url = models.URLField(max_length=255, blank=True, null=True)
+    discord_webhook_url = models.URLField(
+        max_length=255, blank=True, null=True
+    )  # 해당 부분은 선택사항으로 기본 설정.
 
     USERNAME_FIELD = "username"
     REQUIRED_FIELDS = ["email"]

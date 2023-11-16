@@ -94,7 +94,8 @@ DATABASES = {
         "NAME": env("DB_NAME"),
         "USER": env("DB_USER"),
         "PASSWORD": env("DB_PASSWORD"),
-        "HOST": env("DB_HOST"),
+        # "HOST": env("DB_HOST"), # DB
+        "HOST": "host.docker.internal",  # 개발환경 전용(도커)
         "PORT": env("DB_PORT"),
     }
 }
@@ -136,9 +137,9 @@ USE_TZ = True
 
 # Static files
 STATIC_URL = "/static/"
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-]
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, "static"),
+# ]
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 
@@ -193,6 +194,9 @@ SWAGGER_SETTINGS = {
     }
 }
 
+# DISCORD_WEBHOOK_URL 환경 변수 추가
+DISCORD_WEBHOOK_URL = env("DISCORD_WEBHOOK_URL")
+
 # Redis Cache 설정
 CACHES = {
     "default": {
@@ -210,13 +214,15 @@ CELERY_RESULT_BACKEND = "redis://redis:6379/0"
 
 # Celery Beat 스케줄 설정
 # 오전 9시에 사용자별 일일 예산 추천 알림 (budget, stalker 의 tasks 실행)
+CELERY_TIMEZONE = "Asia/Seoul"
+CELERY_ENABLE_UTC = False
 CELERY_BEAT_SCHEDULE = {
     "morning_budget_notification": {
-        "task": "budget.tasks.send_daily_budget_notification",
-        "schedule": crontab(hour=9, minute=0),
+        "task": "budget.tasks.send_daily_budget_recommendations",
+        "schedule": crontab(hour=21, minute=15),
     },
     "morning_budget_exceed_alert": {
         "task": "stalker.tasks.send_budget_exceed_alerts",
-        "schedule": crontab(hour=9, minute=0),
+        "schedule": crontab(hour=21, minute=16),
     },
 }

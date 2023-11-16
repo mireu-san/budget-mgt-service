@@ -3,6 +3,7 @@ from django.utils.timezone import now
 from .models import UserBudget
 from django.contrib.auth import get_user_model
 from discord import send_discord_notification
+from django.conf import settings
 
 User = get_user_model()
 
@@ -15,13 +16,14 @@ def send_daily_budget_recommendations():
         recommended_budget = calculate_daily_budget_for_user(user)
 
         # Discord 알림 메시지 생성
-        message = (
-            f"{user.username}, your recommended daily budget is {recommended_budget}"
-        )
+        message = f"{user.username}님, 오늘 권장되는 일일 예산은 {recommended_budget}입니다."
 
-        # Discord 알림 보내기 (사용자별로 Discord Webhook URL 설정 필요)
-        webhook_url = user.discord_webhook_url  # 사용자 모델에 webhook URL을 저장해야 합니다.
-        send_discord_notification(webhook_url, message)
+        # .env 파일에서 설정된 공통 Discord Webhook URL 사용
+        webhook_url = settings.DISCORD_WEBHOOK_URL
+
+        # Discord 알림 보내기
+        if webhook_url:
+            send_discord_notification(webhook_url, message)
 
 
 def calculate_daily_budget_for_user(user):

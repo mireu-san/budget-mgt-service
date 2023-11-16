@@ -12,6 +12,8 @@
         - static_volume:/app/staticfiles
       ports:
         - "8000:8000"
+      environment:
+      - DISCORD_WEBHOOK_URL=${DISCORD_WEBHOOK_URL}
       depends_on:
         - redis
     nginx:
@@ -35,6 +37,8 @@
       command: celery -A core worker --loglevel=info
       volumes:
         - .:/app
+      environment:
+        - DISCORD_WEBHOOK_URL=${DISCORD_WEBHOOK_URL}
       depends_on:
         - web
         - redis
@@ -44,6 +48,8 @@
       command: celery -A core beat --loglevel=info
       volumes:
         - .:/app
+      environment:
+        - DISCORD_WEBHOOK_URL=${DISCORD_WEBHOOK_URL}
       depends_on:
         - web
         - redis
