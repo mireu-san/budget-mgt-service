@@ -37,4 +37,6 @@ def calculate_daily_budget_for_user(user):
         user, start_date, end_date
     )
     days_in_month = (end_date - start_date).days + 1  # 이번 달의 총 일수 계산
-    return total_budget / days_in_month if total_budget else 0
+
+    # 소숫점 없이 반올림된 예산 반환
+    return round(total_budget / days_in_month) if total_budget else 0
